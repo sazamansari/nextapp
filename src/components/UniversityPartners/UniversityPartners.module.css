@@ -1,0 +1,103 @@
+.partnersSection {
+  padding: 8rem 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.partnersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.marqueeContainer {
+  width: 100vw; /* Take full width for infinite scroll */
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  z-index: 2;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+.marquee {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.partnerCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  min-width: 280px;
+  text-align: center;
+  transition: all var(--transition-normal);
+  cursor: default;
+}
+
+.partnerCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.partnerCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.partnerCard p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); } /* -50% of total width minus gap */
+}

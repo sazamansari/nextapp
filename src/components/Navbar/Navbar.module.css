@@ -1,0 +1,81 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 0;
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: all var(--transition-normal);
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinks a {
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.navLinks a:hover {
+  color: var(--text-primary);
+}
+
+.navLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gradient-main);
+  transition: width var(--transition-normal);
+  border-radius: 2px;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+}
